@@ -1,0 +1,109 @@
+html,
+body{
+	height: 100vh;
+	font-family: 'Roboto';
+	font-size: 16px;
+	font-weight: 400;
+	color: #000000;
+}
+.content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #2F2F2F;
+	height: 100vh;
+}
+h1,
+h2{
+	color: #000000;
+	font-weight: 400;
+	font-size: 1.5em;
+}
+h2{
+	font-size: 1em;
+}
+ul{
+	list-style-type: none;
+}
+.inside{
+	display: flex;
+}
+.form-input{
+	background-color: white;
+	box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.75);
+	padding: 40px;
+	position: relative;
+	width: 110%;
+}
+.account{
+	background-color: #FCEB6E;
+	display: flex;
+	flex-direction: column;
+	padding: 50px;
+	width: 50%;
+}
+.head{
+	margin-bottom: 1.7em;
+}
+.form{
+	background-color: white;
+	box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.75);
+	padding: 40px;
+	position: relative;
+	width: 110%;
+}
+.avatar{
+	position: absolute;
+	top:-1.7em;
+}
+.footer{
+	display: flex;
+	justify-content: flex-end;
+	padding: 25px;
+}
+button{
+	color: #736D45;
+	background-color: transparent;
+	border: 0;
+}
+.cross{
+	font-size: 1.6em;
+}
+button:hover{
+	color: #AAAAAA;
+	cursor: pointer;
+}
+.row{
+	display: flex;
+}
+.cell{
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+.cell-head{
+	display: flex;
+	justify-content: space-between;
+}
+label{
+	text-transform: uppercase;
+	display: block;
+	font-size: 0.8em;
+	font-weight: 700;
+	margin: 20px 0px;
+}
+input{
+	border: 0;
+	border-bottom: 1px solid #AAAAAA;
+	padding-bottom: 10px;
+}
+textarea{
+	border: 0;
+	border-bottom: 1px solid #AAAAAA;
+	padding-bottom: 10px;
+}
+img{
+	border-radius: 50%;
+	width: 65px;
+	height: 65px;
+}

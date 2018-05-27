@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Quote generator</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+	<link rel="stylesheet" href="./normalize.css" />
+	<link rel="stylesheet" href="./styles.css" />
+  
+</head>
+<body>
+	<div class="content">
+		<div class="account">
+		  	<div class="head">
+				<h1>Quote generator</h1>
+				<h2>Welcome to your quotation manager.</h2>
+			</div>
+			<div class="inside">
+				<div class="instruction">
+					<p>Fill the input with a number between 0 and 3 :</p>
+					<ul>
+						<li>1 : List of quotes</li>
+						<li>2 : Random quote</li>
+						<li>3 : Add quote</li>
+						<li>0 : Quit the program</li>
+					</ul>
+				</div>		
+				<div class="form-input">
+					<div class="cell cell-1">
+						<div class="cell-head">
+							<label for="username">Input</label>
+							<button class="cross">&#10005;</button>		
+						</div>
+						<input type="text" placeholder="Write a number between 0 and 3 :">  
+					</div>
+					<button onclick="quotesProgram();">Valider</button>
+				</div>
+			</div>
+
+
+			<div class="form" id="addQuote">
+				<h1>Add your quote : </h1>
+				<div class="row">
+					<div class="cell  cell-1">
+						<label for="quote">Quote</label>
+						<input type="text" placeholder="Enter the quote">  
+					</div>
+				</div>
+				<div class="row">
+					<div class="cell  cell-2">
+						<label for="category">Category</label>
+						<select>
+							<option value="movie">Movie</option>
+							<option value="song">Song</option>
+							<option value="book">Book</option>
+							<option value="other">Other</option>
+						</select>   
+					</div>
+					<div class="cell  cell-2">
+						<label for="title">Title</label>
+						<input type="text" placeholder="Enter the title">
+					</div>
+				</div>
+				<div class="row">
+					<div class="cell  cell-2">
+						<label for="character">Character</label>
+						<input type="text" placeholder="Enter the character">
+					</div>
+					<div class="cell  cell-2">
+						<label for="year">Year</label>
+						<input type="text" placeholder="Enter the year">
+					</div>
+				</div>
+				<div class="footer">
+					<button>Validate</button>
+					<button>Discard</button>
+				</div>
+			</div>
+
+
+			<div class="form" id="displayQuotes">
+				<h1>Here are all the quotes : </h1>
+
+			</div>
+
+			<div class="form" id="randomQuote">
+				<h1>Here a random quote : </h1>
+
+			</div>
+			
+		</div>
+
+<!-- 		  
+		  <div class="form">
+			<div class="avatar">
+			  <img src="http://1.bp.blogspot.com/-ecmaUWzLUb4/UdJfCxllyyI/AAAAAAAABvw/h6BfgAIn4pU/s72-c/avatar20.jpg" alt="Avatar">
+			</div>
+			<div class="row">
+			  <div class="cell  cell-1">
+				<label for="username">Username</label>
+				<input type="text" placeholder="Enter your username">  
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="cell  cell-2">
+				<label for="firstname">First name</label>
+				<input type="text" placeholder="Enter your first name">
+			  </div>
+			  <div class="cell  cell-2">
+				<label for="lastname">Last name</label>
+				<input type="text" placeholder="Enter your last name">
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="cell  cell-1">
+				<label for="Email">EMail</label>
+				<input type="text" placeholder="Enter your email">  
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="cell  cell-1">
+				<label for="username">Bio</label>
+				<textarea name="" id="" cols="30" rows="6" placeholder="Tell us about yourself"></textarea>
+			  </div>
+			</div>
+		  </div>
+		  <div class="footer">
+			<button>Cancel</button>
+			<button onclick="javascript:window.open('','_self').close();">Quit the program</button>
+		  </div>
+		</div> -->
+	  </div>
+	<script src="script.js"></script>
+	
+</body>
+</html>
