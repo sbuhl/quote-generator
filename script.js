@@ -128,24 +128,12 @@ function randowQuotes(){
     var randomQuotes = document.getElementById("toHide randomQuote");
     randomQuotes.id = "toHide randomQuote";
     randomQuotes.classList.remove("hide");
-    
-    // for (var i = 0; i < numberOfQuotes; i++) {
-    //     var count = 0;
-    //     for (var j = 0; j < Math.floor(Math.random() * 20); j++) {
-    //         count++;
-    //     }
-    //     console.log(count);
-    // }
-
-
-
 
     for (var counter = 0; counter < numberOfQuotes; counter++) {
 
         var quotation = quotations[Math.floor(Math.random()*quotations.length)];
         document.getElementById("display-random-quotes").innerHTML += quotation.describe();
     
-        // counter = counter + 1; // the counter variable changes within the loop body
         console.log(counter);
     }
     
