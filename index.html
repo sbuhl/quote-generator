@@ -31,25 +31,26 @@
 							<label for="username">Input</label>
 							<button class="cross">&#10005;</button>		
 						</div>
-						<input type="text" placeholder="Write a number between 0 and 3 :">  
+						<input type="text" id="valeur" placeholder="Write a number between 0 and 3 :">  
 					</div>
 					<button onclick="quotesProgram();">Valider</button>
 				</div>
 			</div>
 
 
-			<div class="form hide" id="addQuote">
+			<div class="form hide" id="toHide createQuote">
+				<button class="cross" onclick="removeForm();">&#10005;</button>		
 				<h1>Add your quote : </h1>
 				<div class="row">
 					<div class="cell  cell-1">
 						<label for="quote">Quote</label>
-						<input type="text" placeholder="Enter the quote">  
+						<input type="text" id="quote" placeholder="Enter the quote">  
 					</div>
 				</div>
 				<div class="row">
 					<div class="cell  cell-2">
 						<label for="category">Category</label>
-						<select>
+						<select id="category">
 							<option value="movie">Movie</option>
 							<option value="song">Song</option>
 							<option value="book">Book</option>
@@ -58,34 +59,42 @@
 					</div>
 					<div class="cell  cell-2">
 						<label for="title">Title</label>
-						<input type="text" placeholder="Enter the title">
+						<input type="text" id="title" placeholder="Enter the title">
 					</div>
 				</div>
 				<div class="row">
 					<div class="cell  cell-2">
 						<label for="character">Character</label>
-						<input type="text" placeholder="Enter the character">
+						<input type="text" id="character" placeholder="Enter the character">
 					</div>
 					<div class="cell  cell-2">
 						<label for="year">Year</label>
-						<input type="text" placeholder="Enter the year">
+						<input type="text" id="year" placeholder="Enter the year">
 					</div>
 				</div>
 				<div class="footer">
-					<button>Validate</button>
-					<button>Discard</button>
+					<button type="submit" onclick="createQuote();">Validate</button>
+					<button onclick="removeForm();">Discard</button>
 				</div>
 			</div>
 
 
-			<div class="form hide" id="displayQuotes">
+			<div class="form hide" id="toHide displayQuotes">
+				<button class="cross" id="toRemove" onclick="removeAllQuotes();">&#10005;</button>		
 				<h1>Here are all the quotes : </h1>
 
+				<div id="displayQuotes-inside">
+
+				</div>
 			</div>
 
-			<div class="form hide" id="randomQuote">
+			<div class="form hide" id="toHide randomQuote">
+				<button class="cross" id="toRemove" onclick="removeRandomQuotes();">&#10005;</button>		
 				<h1>Here a random quote : </h1>
+				
+				<div id="display-random-quotes">
 
+				</div>
 			</div>
 			
 		</div>
