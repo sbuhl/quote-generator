@@ -80,17 +80,27 @@ function removeForm(){
     document.getElementById("year").value = "";  
 }
 
-function createQuote(){
-    var newQuote = document.getElementById("quote").value;    
-    var newCategory = document.getElementById("category").value;    
-    var newTitle = document.getElementById("title").value;    
-    var newCharacter = document.getElementById("character").value;    
-    var newYear = document.getElementById("year").value;    
+function capitalizeFirstLetter(ifno) {
+    return ifno.charAt(0).toUpperCase() + ifno.slice(1);
+}
 
-    
+function createQuote(){
+    var newQuote = document.getElementById("quote").value.toLowerCase()
+    newQuote = capitalizeFirstLetter(newQuote);    
+    var newCategory = document.getElementById("category").value.toLowerCase();    
+    newCategory = capitalizeFirstLetter(newCategory);    
+    var newTitle = document.getElementById("title").value.toLowerCase();    
+    newTitle = capitalizeFirstLetter(newTitle);    
+    var newCharacter = document.getElementById("character").value.toLowerCase();    
+    newCharacter = capitalizeFirstLetter(newCharacter);    
+    var newYear = document.getElementById("year").value.toLowerCase();    
+    newYear = capitalizeFirstLetter(newYear);    
+
     var newQuotation = new Quotation(newQuote, newCategory, newTitle, newCharacter, newYear);
     console.log("Quotation added");
+    removeForm();
     return quotations.push(newQuotation);
+
 }
 
 function removeAllQuotes(){
