@@ -7,7 +7,6 @@ function presentChoices(){
     console.log("0: Quit")
 }
 
-// Create a new Array to store all the contacts and a Object to create the contacts
 var quotations = new Array();
 function Quotation(quote, category, character, title, year){
     this.quote      = quote;
@@ -17,7 +16,6 @@ function Quotation(quote, category, character, title, year){
     this.year       = year;
 }
 Quotation.prototype.describe = function(){
-    // var description = "Quote : " + this.quote + ", film : " + this.category;
     var description = 
         `
             <div class="parent">
@@ -30,7 +28,7 @@ Quotation.prototype.describe = function(){
         `
     return description;
 }
-// Creation of the five firsts quotations
+// Creation of the five first quotations
 var jurrasicPark = new Quotation(
     "Your scientists were so preoccupied with whether they could, they didn't stop to think if they should.",
     "Movie",
@@ -98,6 +96,8 @@ function createQuote(){
 function removeAllQuotes(){
     var toHide = document.getElementById("toHide displayQuotes");
     toHide.classList.add("hide");
+    document.getElementById("displayQuotes-inside").innerHTML = "";
+
 }
 
 function displayQuotes(){
@@ -109,7 +109,6 @@ function displayQuotes(){
         document.getElementById("displayQuotes-inside").innerHTML += quotation.describe();
     });
 
-    // Comment if you don't want to display it in the console.
     console.log("Here's the list of all your quotes :");
     quotations.forEach(function(quotation){
         console.log(quotation.describe());
@@ -119,6 +118,8 @@ function displayQuotes(){
 function removeRandomQuotes(){
     var toHide = document.getElementById("toHide randomQuote");
     toHide.classList.add("hide");
+    document.getElementById("display-random-quotes").innerHTML = "";
+
 }
 
 function randowQuotes(){
@@ -140,7 +141,6 @@ function randowQuotes(){
     console.log(quotation.describe());
 }
 
-// Program
 function quotesProgram(){
     presentChoices();
     var valeur = document.getElementById("valeur").value
