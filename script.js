@@ -17,14 +17,13 @@ function Quotation(quote, category, character, title, year){
 }
 Quotation.prototype.describe = function(){
     var description = 
-        `
-            <div class="parent">
-                <div class="child">${this.quote}</div>
-                <div class="child">${this.category}</div>
-                <div class="child">${this.title}</div>
-                <div class="child">${this.character}</div>
-                <div class="child">${this.year}</div>
-            </div>
+        `   <tr class="parent">
+                <td class="child">${this.quote}</td>
+                <td class="child">${this.category}</td>
+                <td class="child">${this.title}</td>
+                <td class="child">${this.character}</td>
+                <td class="child">${this.year}</td>
+            </tr>
         `
     return description;
 }
@@ -121,6 +120,8 @@ function displayQuotes(){
 
     console.log("Here's the list of all your quotes :");
     quotations.forEach(function(quotation){
+        var i=0;
+        i++;
         console.log(quotation.describe());
     });
 }
@@ -130,26 +131,58 @@ function removeRandomQuotes(){
     toHide.classList.add("hide");
     document.getElementById("display-random-quotes").innerHTML = "";
 }
-
-function randowQuotes(){
+function typeOfQuote(numberOfQuotes){
+    var typeOfQuote = "";
+    typeOfQuote = prompt('Do you want a Movie or a Book ?');
+    if(typeOfQuote === "Movie"){
+        randomMovie();
+    }else if(typeOfQuote === "Book"){
+        randomBook(numberOfQuotes);
+    }else{
+        typeOfQuote(numberOfQuotes);
+    }
+}
+function randomMovie(numberOfQuotes){
+    var randomQuotes = document.getElementById("toHide randomQuote");
+    randomQuotes.id = "toHide randomQuote";
+    randomQuotes.classList.remove("hide");
+    
+    for (var counter = 0; counter < numberOfQuotes; counter++) {
+        
+        // var quotations = quotations.filter(x => x.id === '45');
+        var quotation = quotations[Math.floor(Math.random()*quotations.length)];
+        document.getElementById("display-random-quotes").innerHTML += quotation.describe();
+    
+        console.log(counter);
+    }
+}
+function randomBook(numberOfQuotes){
+    var randomQuotes = document.getElementById("toHide randomQuote");
+    randomQuotes.id = "toHide randomQuote";
+    randomQuotes.classList.remove("hide");
+    
+    for (var counter = 0; counter < numberOfQuotes; counter++) {
+    
+        var quotation = quotations[Math.floor(Math.random()*quotations.length)];
+        document.getElementById("display-random-quotes").innerHTML += quotation.describe();
+    
+        console.log(counter);
+    }
+}
+function randomQuotes(){
     var numberOfQuotes = "";
     numberOfQuotes = prompt('How many quotes do you want ? (between 1 and 5) :');
     if(numberOfQuotes > 5 || numberOfQuotes <= 0){
         console.log("You can't write this number. Please, try again.")
-        randowQuotes();
+        randomQuotes();
     }else {
-        var randomQuotes = document.getElementById("toHide randomQuote");
-        randomQuotes.id = "toHide randomQuote";
-        randomQuotes.classList.remove("hide");
-        for (var counter = 0; counter < numberOfQuotes; counter++) {
-    
-            var quotation = quotations[Math.floor(Math.random()*quotations.length)];
-            document.getElementById("display-random-quotes").innerHTML += quotation.describe();
         
-            console.log(counter);
-        }
-        console.log(quotation.describe());
+        
+        typeOfQuote(numberOfQuotes);
     }
+}
+function refresh() {
+    location.reload();
 }
 
 function quotesProgram(){
@@ -161,9 +194,11 @@ function quotesProgram(){
     }else if (valeur === "1"){
         displayQuotes();
     }else if (valeur === "2"){
-        randowQuotes();
+        randomQuotes();
     }else if(valeur === "3"){
         displayForm();
+    }else{
+        refresh();
     }
     return;
 }
