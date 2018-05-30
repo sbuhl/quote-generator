@@ -119,26 +119,27 @@ function removeRandomQuotes(){
     var toHide = document.getElementById("toHide randomQuote");
     toHide.classList.add("hide");
     document.getElementById("display-random-quotes").innerHTML = "";
-
 }
 
 function randowQuotes(){
     var numberOfQuotes = "";
-    numberOfQuotes = prompt('How many quotes do you want ? :');
+    numberOfQuotes = prompt('How many quotes do you want ? (between 1 and 5) :');
+    if(numberOfQuotes > 5 || numberOfQuotes <= 0){
+        console.log("You can't write this number. Please, try again.")
+        randowQuotes();
+    }else {
+        var randomQuotes = document.getElementById("toHide randomQuote");
+        randomQuotes.id = "toHide randomQuote";
+        randomQuotes.classList.remove("hide");
+        for (var counter = 0; counter < numberOfQuotes; counter++) {
     
-    var randomQuotes = document.getElementById("toHide randomQuote");
-    randomQuotes.id = "toHide randomQuote";
-    randomQuotes.classList.remove("hide");
-
-    for (var counter = 0; counter < numberOfQuotes; counter++) {
-
-        var quotation = quotations[Math.floor(Math.random()*quotations.length)];
-        document.getElementById("display-random-quotes").innerHTML += quotation.describe();
-    
-        console.log(counter);
+            var quotation = quotations[Math.floor(Math.random()*quotations.length)];
+            document.getElementById("display-random-quotes").innerHTML += quotation.describe();
+        
+            console.log(counter);
+        }
+        console.log(quotation.describe());
     }
-    
-    console.log(quotation.describe());
 }
 
 function quotesProgram(){
