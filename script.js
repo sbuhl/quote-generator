@@ -135,7 +135,7 @@ function typeOfQuote(numberOfQuotes){
     var typeOfQuote = "";
     typeOfQuote = prompt('Do you want a Movie or a Book ?');
     if(typeOfQuote === "Movie"){
-        randomMovie();
+        randomMovie(numberOfQuotes);
     }else if(typeOfQuote === "Book"){
         randomBook(numberOfQuotes);
     }else{
@@ -147,13 +147,21 @@ function randomMovie(numberOfQuotes){
     randomQuotes.id = "toHide randomQuote";
     randomQuotes.classList.remove("hide");
     
+    const films = quotations.filter(function(quotation){
+        if(quotation.category === "Movie"){
+            return true;
+        }
+    });
+    
+    console.table(films);
+
     for (var counter = 0; counter < numberOfQuotes; counter++) {
         
-        // var quotations = quotations.filter(x => x.id === '45');
-        var quotation = quotations[Math.floor(Math.random()*quotations.length)];
+        var quotation = films[Math.floor(Math.random()*films.length)];
+
         document.getElementById("display-random-quotes").innerHTML += quotation.describe();
-    
-        console.log(counter);
+            
+        
     }
 }
 function randomBook(numberOfQuotes){
@@ -161,12 +169,21 @@ function randomBook(numberOfQuotes){
     randomQuotes.id = "toHide randomQuote";
     randomQuotes.classList.remove("hide");
     
+    const livres = quotations.filter(function(quotation){
+        if(quotation.category === "Book"){
+            return true;
+        }
+    });
+    
+    console.table(livres);
+
     for (var counter = 0; counter < numberOfQuotes; counter++) {
-    
-        var quotation = quotations[Math.floor(Math.random()*quotations.length)];
+        
+        var quotation = livres[Math.floor(Math.random()*livres.length)];
+
         document.getElementById("display-random-quotes").innerHTML += quotation.describe();
-    
-        console.log(counter);
+            
+        
     }
 }
 function randomQuotes(){
@@ -202,3 +219,4 @@ function quotesProgram(){
     }
     return;
 }
+
