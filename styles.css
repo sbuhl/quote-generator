@@ -27,6 +27,7 @@ ul{
 }
 .inside{
 	display: flex;
+	margin-bottom: 2em;
 }
 .form-input{
 	background-color: white;
@@ -44,6 +45,10 @@ ul{
 }
 .head{
 	margin-bottom: 1.7em;
+}
+.quote-head{
+	display: flex;
+	justify-content: space-between;
 }
 .form{
 	background-color: white;
