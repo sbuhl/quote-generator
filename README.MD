@@ -1,1 +1,1 @@
-Hello and welcome on the quote generator for OpenClassRooms
+Hello and welcome on the quote generator for OpenClassRooms.

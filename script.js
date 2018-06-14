@@ -11,8 +11,8 @@ var quotations = new Array();
 function Quotation(quote, category, character, title, year){
     this.quote      = quote;
     this.category   = category;
-    this.title      = title;
     this.character  = character;
+    this.title      = title;
     this.year       = year;
 }
 Quotation.prototype.describe = function(){
@@ -20,8 +20,8 @@ Quotation.prototype.describe = function(){
         `   <tr class="parent">
                 <td class="child">${this.quote}</td>
                 <td class="child">${this.category}</td>
-                <td class="child">${this.title}</td>
                 <td class="child">${this.character}</td>
+                <td class="child">${this.title}</td>
                 <td class="child">${this.year}</td>
             </tr>
         `
@@ -31,32 +31,32 @@ Quotation.prototype.describe = function(){
 var jurrasicPark = new Quotation(
     "Your scientists were so preoccupied with whether they could, they didn't stop to think if they should.",
     "Movie",
-    "Jurassic Park",
     "Ian Malcom",
+    "Jurassic Park",
     1993); 
 var titanic = new Quotation(
     "Oh shit this is cold! Shit, shit, shit.",
     "Movie",
-    "Titanic",
     "Jack Dawson",
+    "Titanic",
     1997); 
 var toyStory = new Quotation(
     "Shut up ! Just shut up, you idiot!",
     "Movie",
-    "Toy Story",
     "Woody",
+    "Toy Story",
     1995); 
 var goneWith = new Quotation(
     "Frankly, my dear, I don't give a damn.",
     "Movie",
-    "Gone With the Wind",
     "Rhett Butler",
+    "Gone With the Wind",
     1939); 
 var godFather = new Quotation(
     "I'm going to make him an offer he can't refuse.",
     "Movie",
-    "The Godfather",
     "Don Corleone",
+    "The Godfather",
     1972); 
 quotations.push(jurrasicPark);
 quotations.push(titanic);
@@ -156,12 +156,8 @@ function randomMovie(numberOfQuotes){
     console.table(films);
 
     for (var counter = 0; counter < numberOfQuotes; counter++) {
-        
         var quotation = films[Math.floor(Math.random()*films.length)];
-
         document.getElementById("display-random-quotes").innerHTML += quotation.describe();
-            
-        
     }
 }
 function randomBook(numberOfQuotes){
@@ -178,12 +174,8 @@ function randomBook(numberOfQuotes){
     console.table(livres);
 
     for (var counter = 0; counter < numberOfQuotes; counter++) {
-        
         var quotation = livres[Math.floor(Math.random()*livres.length)];
-
         document.getElementById("display-random-quotes").innerHTML += quotation.describe();
-            
-        
     }
 }
 function randomQuotes(){
@@ -192,9 +184,7 @@ function randomQuotes(){
     if(numberOfQuotes > 5 || numberOfQuotes <= 0){
         console.log("You can't write this number. Please, try again.")
         randomQuotes();
-    }else {
-        
-        
+    }else { 
         typeOfQuote(numberOfQuotes);
     }
 }

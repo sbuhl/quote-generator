@@ -19,150 +19,128 @@
 	</nav>
 
 	<div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-4 col-lg-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file"></span>
-                  
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" onclick="displayQuotes();">
-                  <span data-feather="shopping-cart"></span>
-                  1. List of quotes
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" onclick="randomQuotes();">
-                  <span data-feather="users"></span>
-                  2. Random quotes
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" onclick="displayForm();">
-                  <span data-feather="bar-chart-2"></span>
-                  3. Add quote
-                </a>
-							</li>
-							<li class="nav-item">
-									<a class="nav-link" href="#" onclick="refresh();">
-										<span data-feather="bar-chart-2"></span>
-										0. Refresh the page
-									</a>
-								</li>
-            </ul>
-          </div>
-        </nav>
-
-        <main role="main" class="col-md-8 ml-sm-auto col-lg-10 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-						<h1 class="h2">Quote generator</h1>
-          </div>
-					<div class="inside">	
-							<div class="form-input">
-								<div class="cell cell-1">
-									<div class="cell-head">
-										<label for="valeur">Welcome to your quotation manager. Select of of the option on the left or write a number between 0 and 3.</label>
-									</div>
-									<input type="text" id="valeur" placeholder="Write a number between 0 and 3 :">  
-								</div>
-								<button class="btn btn-primary my-2" onclick="quotesProgram();">Enter</button>
+      	<div class="row">
+        	<nav class="col-md-4 col-lg-2 d-none d-md-block bg-light sidebar">
+          	<div class="sidebar-sticky">
+            	<ul class="nav flex-column">
+              		<li class="nav-item">
+              			<a class="nav-link" href="#"><span data-feather="file"></span></a>
+              		</li>
+              		<li class="nav-item">
+                		<a class="nav-link" href="#" onclick="displayQuotes();"><span data-feather="shopping-cart"></span>1. List of quotes</a>
+              		</li>
+              		<li class="nav-item">
+                		<a class="nav-link" href="#" onclick="randomQuotes();"><span data-feather="users"></span>2. Random quotes</a>
+              		</li>
+              		<li class="nav-item">
+                		<a class="nav-link" href="#" onclick="displayForm();"><span data-feather="bar-chart-2"></span>3. Add quote</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" onclick="refresh();"><span data-feather="bar-chart-2"></span>0. Refresh the page</a>
+					</li>
+           		</ul>
+          	</div>
+        	</nav>
+			<main role="main" class="col-md-8 ml-sm-auto col-lg-10 px-4">
+          		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+					<h1 class="h2">Quote generator</h1>
+          		</div>
+				<div class="inside">	
+					<div class="form-input">
+						<div class="cell cell-1">
+							<div class="cell-head">
+								<label for="valeur">Welcome to your quotation manager. Select of of the option on the left or write a number between 0 and 3.</label>
 							</div>
+							<input type="text" id="valeur" placeholder="Write a number between 0 and 3 :">  
 						</div>
-			
-			
-						<div class="hide" id="toHide createQuote">
-								<div class="quote-head">
-										<h1>Add your quote : </h1>
-										<button class="cross" id="toRemove" onclick="removeForm();">&#10005;</button>		
-								</div>	
-							<div class="row">
-								<div class="cell  cell-1">
-									<label for="quote">Quote</label>
-									<input type="text" id="quote" placeholder="Enter the quote">  
-								</div>
-							</div>
-							<div class="row">
-								<div class="cell  cell-2">
-									<label for="category">Category</label>
-									<select id="category">
-										<option value="movie">Movie</option>
-										<option value="book">Book</option>
-									</select>   
-								</div>
-								<div class="cell  cell-2">
-									<label for="title">Title</label>
-									<input type="text" id="title" placeholder="Enter the title">
-								</div>
-							</div>
-							<div class="row">
-								<div class="cell  cell-2">
-									<label for="character">Character</label>
-									<input type="text" id="character" placeholder="Enter the character">
-								</div>
-								<div class="cell  cell-2">
-									<label for="year">Year</label>
-									<input type="text" id="year" placeholder="Enter the year">
-								</div>
-							</div>
-							<div class="footer">
-								<button type="submit" onclick="createQuote();">Validate</button>
-								<button onclick="removeForm();">Discard</button>
-							</div>
+						<button class="btn btn-primary my-2" onclick="quotesProgram();">Enter</button>
+					</div>
+				</div>
+				<div class="hide" id="toHide createQuote">
+					<div class="quote-head">
+						<h1>Add your quote : </h1>
+						<button class="cross" id="toRemove" onclick="removeForm();">&#10005;</button>	
+					</div>	
+					<div class="row">
+						<div class="cell  cell-1">
+							<label for="quote">Quote</label>
+							<input type="text" id="quote" placeholder="Enter the quote">  
 						</div>
-			
-			
-						<div class="hide" id="toHide displayQuotes">
-							<div class="quote-head">
-									<h1>Here are all the quotes : </h1>
-									<button class="cross" id="toRemove" onclick="removeAllQuotes();">&#10005;</button>		
-							</div>
-							
-							<div class="table-responsive">
-								<table class="table table-striped table-sm">
-									<thead>
-										<tr>
-											<th>Quote</th>
-											<th>Category</th>
-											<th>Character</th>
-											<th>Title</th>
-											<th>Year</th>
-										</tr>
-									</thead>
-									<tbody id="displayQuotes-inside">
+					</div>
+					<div class="row">
+						<div class="cell  cell-2">
+							<label for="category">Category</label>
+							<select id="category">
+								<option value="movie">Movie</option>
+								<option value="book">Book</option>
+							</select>   
+						</div>
+						<div class="cell  cell-2">
+							<label for="title">Title</label>
+								<input type="text" id="title" placeholder="Enter the title">
+						</div>
+					</div>
+					<div class="row">
+						<div class="cell  cell-2">
+							<label for="character">Character</label>
+							<input type="text" id="character" placeholder="Enter the character">
+						</div>
+						<div class="cell  cell-2">
+							<label for="year">Year</label>
+							<input type="text" id="year" placeholder="Enter the year">
+						</div>
+					</div>
+					<div class="footer">
+						<button type="submit" onclick="createQuote();">Validate</button>
+						<button onclick="removeForm();">Discard</button>
+					</div>
+				</div>
+				<div class="hide" id="toHide displayQuotes">
+					<div class="quote-head">
+						<h1>Here are all the quotes : </h1>
+						<button class="cross" id="toRemove" onclick="removeAllQuotes();">&#10005;</button>	
+					</div>
+					<div class="table-responsive">
+						<table class="table table-striped table-sm">
+							<thead>
+								<tr>
+									<th>Quote</th>
+									<th>Category</th>
+									<th>Character</th>
+									<th>Title</th>
+									<th>Year</th>
+								</tr>
+							</thead>
+							<tbody id="displayQuotes-inside">
 										<!-- Add in JS -->
-									</tbody>
-								</table>
-							</div>
-						</div>
-			
-						<div class="hide" id="toHide randomQuote">
-								<div class="quote-head">
-										<h1>Here some random quotes : </h1>
-										<button class="cross" id="toRemove" onclick="removeRandomQuotes();">&#10005;</button>		
-								</div>
-							<div class="table-responsive">
-									<table class="table table-striped table-sm">
-										<thead>
-											<tr>
-												<th>Quote</th>
-												<th>Category</th>
-												<th>Character</th>
-												<th>Title</th>
-												<th>Year</th>
-											</tr>
-										</thead>
-										<tbody id="display-random-quotes">
-											<!-- Add in JS -->
-										</tbody>
-									</table>
-								</div>
-						</div>
-					</main>
-      </div>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="hide" id="toHide randomQuote">
+					<div class="quote-head">
+						<h1>Here some random quotes : </h1>
+						<button class="cross" id="toRemove" onclick="removeRandomQuotes();">&#10005;</button>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-striped table-sm">
+							<thead>
+								<tr>
+									<th>Quote</th>
+									<th>Category</th>
+									<th>Character</th>
+									<th>Title</th>
+									<th>Year</th>
+								</tr>
+							</thead>
+							<tbody id="display-random-quotes">
+								<!-- Add in JS -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</main>
+      	</div>
     </div>
 			
 	<script src="script.js"></script>
