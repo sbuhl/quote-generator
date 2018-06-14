@@ -1,11 +1,11 @@
 console.log("Welcome to your quotation manager !")
 
-function presentChoices(){
-    console.log("1: List of quotes")
-    console.log("2: Random quote")
-    console.log("3: Add quote")
-    console.log("0: Quit")
-}
+// function presentChoices(){
+//     console.log("1: List of quotes")
+//     console.log("2: Random quote")
+//     console.log("3: Add quote")
+//     console.log("0: Quit")
+// }
 
 var quotations = new Array();
 function Quotation(quote, category, character, title, year){
@@ -93,12 +93,13 @@ function createQuote(){
     var newCharacter = document.getElementById("character").value.toLowerCase();    
     newCharacter = capitalizeFirstLetter(newCharacter);    
     var newYear = document.getElementById("year").value.toLowerCase();    
-    newYear = capitalizeFirstLetter(newYear);    
+    // newYear = capitalizeFirstLetter(newYear);    
 
     var newQuotation = new Quotation(newQuote, newCategory, newTitle, newCharacter, newYear);
-    console.log("Quotation added");
     removeForm();
     return quotations.push(newQuotation);
+
+    console.log("Quotation added");
 
 }
 
@@ -106,7 +107,6 @@ function removeAllQuotes(){
     var toHide = document.getElementById("toHide displayQuotes");
     toHide.classList.add("hide");
     document.getElementById("displayQuotes-inside").innerHTML = "";
-
 }
 
 function displayQuotes(){
@@ -160,6 +160,7 @@ function randomMovie(numberOfQuotes){
         document.getElementById("display-random-quotes").innerHTML += quotation.describe();
     }
 }
+
 function randomBook(numberOfQuotes){
     var randomQuotes = document.getElementById("toHide randomQuote");
     randomQuotes.id = "toHide randomQuote";
@@ -192,21 +193,21 @@ function refresh() {
     location.reload();
 }
 
-function quotesProgram(){
-    presentChoices();
-    var valeur = document.getElementById("valeur").value
-    if(valeur > 3 || valeur < 0){
-        console.log("You can't write this number. Please, try again.")
-        quotesProgram();
-    }else if (valeur === "1"){
-        displayQuotes();
-    }else if (valeur === "2"){
-        randomQuotes();
-    }else if(valeur === "3"){
-        displayForm();
-    }else{
-        refresh();
-    }
-    return;
-}
+// function quotesProgram(){
+//     presentChoices();
+//     var valeur = document.getElementById("valeur").value
+//     if(valeur > 3 || valeur < 0){
+//         console.log("You can't write this number. Please, try again.")
+//         quotesProgram();
+//     }else if (valeur === "1"){
+//         displayQuotes();
+//     }else if (valeur === "2"){
+//         randomQuotes();
+//     }else if(valeur === "3"){
+//         displayForm();
+//     }else{
+//         refresh();
+//     }
+//     return;
+// }
 

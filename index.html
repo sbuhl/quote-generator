@@ -7,11 +7,7 @@
 	<link rel="stylesheet" href="./normalize.css" />
 	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="./styles.css" />
-  
-	<!-- 	TO DO :
-			1. Side bar with the instructions on the top left. The whole screen with
-			2. Get the movie/book/ with checkbox
-	-->
+ 
 </head>
 <body>
 	<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
@@ -21,25 +17,25 @@
 	<div class="container-fluid">
       	<div class="row">
         	<nav class="col-md-4 col-lg-2 d-none d-md-block bg-light sidebar">
-          	<div class="sidebar-sticky">
-            	<ul class="nav flex-column">
-              		<li class="nav-item">
-              			<a class="nav-link" href="#"><span data-feather="file"></span></a>
-              		</li>
-              		<li class="nav-item">
-                		<a class="nav-link" href="#" onclick="displayQuotes();"><span data-feather="shopping-cart"></span>1. List of quotes</a>
-              		</li>
-              		<li class="nav-item">
-                		<a class="nav-link" href="#" onclick="randomQuotes();"><span data-feather="users"></span>2. Random quotes</a>
-              		</li>
-              		<li class="nav-item">
-                		<a class="nav-link" href="#" onclick="displayForm();"><span data-feather="bar-chart-2"></span>3. Add quote</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="refresh();"><span data-feather="bar-chart-2"></span>0. Refresh the page</a>
-					</li>
-           		</ul>
-          	</div>
+	          	<div class="sidebar-sticky">
+	            	<ul class="nav flex-column">
+	              		<li class="nav-item">
+	              			<a class="nav-link" href="#"><span data-feather="file"></span></a>
+	              		</li>
+	              		<li class="nav-item">
+	                		<a class="nav-link" href="#" onclick="displayQuotes();"><span data-feather="shopping-cart"></span>1. List of quotes</a>
+	              		</li>
+	              		<li class="nav-item">
+	                		<a class="nav-link" href="#" onclick="randomQuotes();"><span data-feather="users"></span>2. Random quotes</a>
+	              		</li>
+	              		<li class="nav-item">
+	                		<a class="nav-link" href="#" onclick="displayForm();"><span data-feather="bar-chart-2"></span>3. Add quote</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" onclick="refresh();"><span data-feather="bar-chart-2"></span>0. Refresh the page</a>
+						</li>
+	           		</ul>
+	          	</div>
         	</nav>
 			<main role="main" class="col-md-8 ml-sm-auto col-lg-10 px-4">
           		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -112,7 +108,7 @@
 								</tr>
 							</thead>
 							<tbody id="displayQuotes-inside">
-										<!-- Add in JS -->
+								<!-- Add in JS -->
 							</tbody>
 						</table>
 					</div>
@@ -144,6 +140,5 @@
     </div>
 			
 	<script src="script.js"></script>
-	
 </body>
 </html>
