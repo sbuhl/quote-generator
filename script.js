@@ -1,34 +1,13 @@
-'use strict';
+ function presentChoices(){
+     console.log("1: List of quotes")
+     console.log("2: Random quote")
+     console.log("3: Add quote")
+     console.log("0: Quit")
+ }
+document.getElementById("displayQuotes").addEventListener("click", displayQuotes);
+document.getElementById("randomMovie").addEventListener("click", randomMovie);
+document.getElementById("randomBook").addEventListener("click", randomBook);
 
-document.getElementById("refresh").addEventListener("click", refresh);
-
-function refresh() {
-    location.reload();
-}
-
-document.getElementById("displayAllQuotes").addEventListener("click", displayAllQuotes);
-
-function displayAllQuotes(){
-    var allQuotes = document.getElementById("toHide displayQuotes");
-    allQuotes.id = "toHide displayQuotes";
-    allQuotes.classList.remove("hide");
-    
-    quotationsList.forEach(function(quotation){
-        document.getElementById("displayQuotes-inside").innerHTML += quotation.QuotationsStore.describe();
-    });
-
-    console.log("Here's the list of all your quotes :");
-    quotationsList.forEach(function(quotation){
-        var i=0;
-        i++;
-        console.log(quotation.describe());
-    });
-};
-
-
-
-
-document.getElementById("randomQuotes").addEventListener("click", randomQuotes);
 document.getElementById("displayForm").addEventListener("click", displayForm);
 document.getElementById("quotesProgram").addEventListener("click", quotesProgram);
 document.getElementById("removeForm").addEventListener("click", removeForm);
@@ -39,172 +18,15 @@ document.getElementById("removeForm").addEventListener("click", removeForm);
 document.getElementById("removeRandomQuotes").addEventListener("click", removeRandomQuotes);
 
 var quotations = new Array();
+function Quotation(quote, category, character, title, year){
+    this.quote      = quote;
+    this.category   = category;
+    this.character  = character;
+    this.title      = title;
+    this.year       = year;
+}
 
-function Quotation(type, quotes, characters, titles, years){
-    this.type        = type;
-    this.characters  = characters;
-    this.quotes      = quotes;
-    this.titles      = titles;
-    this.years       = years;
-};
-
-class Quote{
-    constructor(character, quote, title, year){
-        this.character = character;
-        this.quote = quote;
-        this.title = title;
-        this.year = year;
-    }
-};
-
-class QuotationsStore {
-    constructor(){
-        this.quotationsList = [];
-    }
-
-    add(quotations){
-        this.quotationsList.push(quotations);
-    }
-
-    initialStorage(){
-        const moviesQuotes = new Quotation('Movie',
-        [
-            'On devient pas chef',
-	        'Nous on est Celtes',
-	        'Une fois j\'ai dormi avec un porc',
-	        'Tu peux préparer les outils',
-	        'Tu devais aller en Germanie',
-	        'Vous connaissez pas le jeu du pélican',
-	        'Croyez moi, c\'est pour votre bien',
-	        'C\'est vous qui faites du bruit',
-	        'Donc si je comprend bien',
-	        'Il faut quand même qu\'on sache sur quel pied danser'
-        ],
-        [
-            ' parcequ\'on le mérite',
-	        ' une seule année dans la légion',
-	        ' pendant une semaine',
-	        ', allez trouve un Breton',
-	        ', je connais à mort',
-	        ' si vous préférez pas jouer à autre chose ',
-	        ', ça va être la grande rigolade pendant quatre jours',
-	        ', je savais pas que c\'était aussi clair',
-	        ', vous voyez bien que c\'est un piège',
-	        ' faites pas celui qu\'est pas au courant'
-        ],
-        [
-            ' andouille !',
-	        ', ça peut encore s\'arranger...',
-	        ', je serais vous, je lancerais des recherches.',
-	        ', c’est moi qui paye l’orchestre.',
-	        ', c\'est vrai ou c\'est pas vrai ?',
-	        ', une petite partie de dés ça peut pas nous faire de mal.',
-	        ', ça doit venir du fait qu\'on marche...',
-	        ', pas de vannes, pas de réflexions...',
-	        ', hé ben, c\'est pas gentil, voila.',
-	        ' bah je sais pas comment vous faites, moi je pourrais pas.'
-        ],
-        [
-            ' andouille !',
-	        ', ça peut encore s\'arranger...',
-	        ', je serais vous, je lancerais des recherches.',
-	        ', c’est moi qui paye l’orchestre.',
-	        ', c\'est vrai ou c\'est pas vrai ?',
-	        ', une petite partie de dés ça peut pas nous faire de mal.',
-	        ', ça doit venir du fait qu\'on marche...',
-	        ', pas de vannes, pas de réflexions...',
-	        ', hé ben, c\'est pas gentil, voila.',
-	        ' bah je sais pas comment vous faites, moi je pourrais pas.'
-        ]);
-        const booksQuotes = new Quotation('Books',
-        [
-            'Dans la vie on ne fait pas ce que l\'on veut', 
-			'La vie est un mystère qu\'il faut vivre', 
-			'On passe une moitié de sa vie à attendre', 
-			'La vie, c\'est comme une bicyclette', 
-			'Dans la nature, tout a toujours une raison',
-			'Notre plus grande gloire n\'est point de tomber', 
-			'Certains ont l\'air honnête', 
-			'Etre libre, ce n\'est pas seulement se débarrasser de ses chaînes', 
-			'Le courage, c\'est de comprendre sa propre vie', 
-			'L\'éducation ne se borne pas à l\'enfance'
-        ],
-        [
-            ' mais on est responsable', 
-			'. Non pas tant à cause de ceux qui font le mal', 
-			' mais donne autant de lumière qu\'un sourire', 
-			' ils ne se rendent jamais compte de leurs souffrances', 
-			', tout obstacle renforce la détermination',
-			', je cherche à comprendre les questions', 
-			' car la promesse est une dette', 
-			', c\'est quand tout fonctionne et que personne ne sait pourquoi', 
-			' mais j\'en suis fier', 
-			' et s\'attendre à un résultat différent'
-        ],
-        [
-            ' à cause de ceux qui regardent et laissent faire.', 
-			' pour ne pas perdre l\'équilibre.', 
-			' un seul jour de votre vie.', 
-			', ça n\'est pas forcément le pot qui est vide.', 
-			', les enfants sont des tyrans.',
-			' chaque fois que nous tombons.', 
-			' mais la capacité de la vaincre.', 
-			', tout le reste c\'est de travers.', 
-			'. Il n\'y a que de mauvais cultivateurs.', 
-			'. J\'avais déjà du mal avec la main !'
-        ],
-        [
-            ' à cause de ceux qui regardent et laissent faire.', 
-			' pour ne pas perdre l\'équilibre.', 
-			' un seul jour de votre vie.', 
-			', ça n\'est pas forcément le pot qui est vide.', 
-			', les enfants sont des tyrans.',
-			' chaque fois que nous tombons.', 
-			' mais la capacité de la vaincre.', 
-			', tout le reste c\'est de travers.', 
-			'. Il n\'y a que de mauvais cultivateurs.', 
-			'. J\'avais déjà du mal avec la main !'
-        ]);
-        this.add(moviesQuotes);
-        this.add(booksQuotes);
-        console.log(booksQuotes);
-    }
-
-    describe(){
-        var description = 
-            `   <tr class="parent">
-                    <td class="child">${this.quote}</td>
-                    <td class="child">${this.category}</td>
-                    <td class="child">${this.character}</td>
-                    <td class="child">${this.title}</td>
-                    <td class="child">${this.year}</td>
-                </tr>
-            `
-        return description;
-    }
-};
-
-class QuoteGenerator {
-    
-
-};
-
-
-//Quotation.prototype.describe = function(){
-//    var description = 
-//        `   <tr class="parent">
-//                <td class="child">${this.quote}</td>
-//                <td class="child">${this.category}</td>
-//                <td class="child">${this.character}</td>
-//                <td class="child">${this.title}</td>
-//                <td class="child">${this.year}</td>
-//            </tr>
-//        `
-//    return description;
-//}
-
-
-// Creation of the five first quotations
+// Creation of the five first Movies
 var jurrasicPark = new Quotation(
     "Your scientists were so preoccupied with whether they could, they didn't stop to think if they should.",
     "Movie",
@@ -240,6 +62,43 @@ quotations.push(titanic);
 quotations.push(toyStory);
 quotations.push(goneWith);
 quotations.push(godFather);
+
+// Creation of the five first Book
+var madameBovary = new Quotation(
+    "Your scientists were so preoccupied with whether they could, they didn't stop to think if they should.",
+    "Book",
+    "Ian Malcom",
+    "Madame Bovary",
+    1993); 
+var leHorla = new Quotation(
+    "Oh shit this is cold! Shit, shit, shit.",
+    "Book",
+    "Jack Dawson",
+    "Le Horla",
+    1997); 
+var semaineQuatre = new Quotation(
+    "Shut up ! Just shut up, you idiot!",
+    "Book",
+    "Woody",
+    "La semaine de 4 heures",
+    1995); 
+var khadija = new Quotation(
+    "Frankly, my dear, I don't give a damn.",
+    "Book",
+    "Rhett Butler",
+    "Khadija",
+    1939); 
+var fatima = new Quotation(
+    "I'm going to make him an offer he can't refuse.",
+    "Book",
+    "Don Corleone",
+    "Fatima",
+    1972); 
+quotations.push(madameBovary);
+quotations.push(leHorla);
+quotations.push(semaineQuatre);
+quotations.push(khadija);
+quotations.push(fatima);
 
 function displayForm(){
     var createQuotes = document.getElementById("toHide createQuote");
@@ -299,8 +158,9 @@ function displayQuotes(){
     quotations.forEach(function(quotation){
         var i=0;
         i++;
-        console.log(quotation.describe());
     });
+    console.table(quotations);
+
 }
 
 function removeRandomQuotes(){
@@ -308,64 +168,100 @@ function removeRandomQuotes(){
     toHide.classList.add("hide");
     document.getElementById("display-random-quotes").innerHTML = "";
 }
-function typeOfQuote(numberOfQuotes){
-    var typeOfQuote = "";
-    typeOfQuote = prompt('Do you want a Movie or a Book ?');
-    if(typeOfQuote === "Movie"){
-        randomMovie(numberOfQuotes);
-    }else if(typeOfQuote === "Book"){
-        randomBook(numberOfQuotes);
-    }else{
-        typeOfQuote(numberOfQuotes);
-    }
-}
-function randomMovie(numberOfQuotes){
-    var randomQuotes = document.getElementById("toHide randomQuote");
-    randomQuotes.id = "toHide randomQuote";
-    randomQuotes.classList.remove("hide");
-    
-    const films = quotations.filter(function(quotation){
-        if(quotation.category === "Movie"){
-            return true;
-        }
-    });
-    
-    console.table(films);
 
-    for (var counter = 0; counter < numberOfQuotes; counter++) {
-        var quotation = films[Math.floor(Math.random()*films.length)];
-        document.getElementById("display-random-quotes").innerHTML += quotation.describe();
-    }
+Quotation.prototype.describe = function(){
+    var description = 
+        `   <tr class="parent">
+                <td class="child">${this.quote}</td>
+                <td class="child">${this.category}</td>
+                <td class="child">${this.character}</td>
+                <td class="child">${this.title}</td>
+                <td class="child">${this.year}</td>
+            </tr>
+        `
+    return description;
 }
 
-function randomBook(numberOfQuotes){
-    var randomQuotes = document.getElementById("toHide randomQuote");
-    randomQuotes.id = "toHide randomQuote";
-    randomQuotes.classList.remove("hide");
-    
-    const livres = quotations.filter(function(quotation){
-        if(quotation.category === "Book"){
-            return true;
-        }
-    });
-    
-    console.table(livres);
-
-    for (var counter = 0; counter < numberOfQuotes; counter++) {
-        var quotation = livres[Math.floor(Math.random()*livres.length)];
-        document.getElementById("display-random-quotes").innerHTML += quotation.describe();
-    }
-}
-function randomQuotes(){
+function randomMovie(){
     var numberOfQuotes = "";
     numberOfQuotes = prompt('How many quotes do you want ? (between 1 and 5) :');
     if(numberOfQuotes > 5 || numberOfQuotes <= 0){
         console.log("You can't write this number. Please, try again.")
         randomQuotes();
     }else { 
-        typeOfQuote(numberOfQuotes);
+        var randomQuotes = document.getElementById("toHide randomQuote");
+        randomQuotes.id = "toHide randomQuote";
+        randomQuotes.classList.remove("hide");
+        
+        const films = quotations.filter(function(quotation){
+            if(quotation.category === "Movie"){
+                return true;
+            }
+        });
+        
+        console.table(films);
+
+        for (var counter = 0; counter < numberOfQuotes; counter++) {
+            var quoteR = films[Math.floor(Math.random()*films.length)].quote;
+            var characterR = films[Math.floor(Math.random()*films.length)].character;
+            var categoryR = films[Math.floor(Math.random()*films.length)].category;
+            var titleR = films[Math.floor(Math.random()*films.length)].title;
+            var yearR = films[Math.floor(Math.random()*films.length)].year;
+            console.log(quoteR, characterR, titleR, yearR);
+            document.getElementById("display-random-quotes").innerHTML += 
+            `   <tr class="parent">
+                    <td class="child">${quoteR}</td>
+                    <td class="child">${categoryR}</td>
+                    <td class="child">${characterR}</td>
+                    <td class="child">${titleR}</td>
+                    <td class="child">${yearR}</td>
+                </tr>
+            `;
+        }
     }
 }
+
+function randomBook(){
+    var numberOfQuotes = "";
+    numberOfQuotes = prompt('How many quotes do you want ? (between 1 and 5) :');
+    if(numberOfQuotes > 5 || numberOfQuotes <= 0){
+        console.log("You can't write this number. Please, try again.")
+        randomQuotes();
+    }else { 
+    
+        var randomQuotes = document.getElementById("toHide randomQuote");
+        randomQuotes.id = "toHide randomQuote";
+        randomQuotes.classList.remove("hide");
+        
+        const livres = quotations.filter(function(quotation){
+            if(quotation.category === "Book"){
+                return true;
+            }
+        });
+        
+        console.table(livres);
+
+        for (var counter = 0; counter < numberOfQuotes; counter++) {
+            var quoteR = livres[Math.floor(Math.random()*livres.length)].quote;
+            var characterR = livres[Math.floor(Math.random()*livres.length)].character;
+            var categoryR = livres[Math.floor(Math.random()*livres.length)].category;
+            var titleR = livres[Math.floor(Math.random()*livres.length)].title;
+            var yearR = livres[Math.floor(Math.random()*livres.length)].year;
+            console.log(quoteR, characterR, titleR, yearR);
+            document.getElementById("display-random-quotes").innerHTML += 
+            `   <tr class="parent">
+                    <td class="child">${quoteR}</td>
+                    <td class="child">${categoryR}</td>
+                    <td class="child">${characterR}</td>
+                    <td class="child">${titleR}</td>
+                    <td class="child">${yearR}</td>
+                </tr>
+            `;
+        }
+    }
+
+}
+
 function refresh() {
     location.reload();
 }
