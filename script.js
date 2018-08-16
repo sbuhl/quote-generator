@@ -1,10 +1,4 @@
- function presentChoices(){
-     console.log("1: List of quotes")
-     console.log("2: Random quote")
-     console.log("3: Add quote")
-     console.log("0: Quit")
- }
-document.getElementById("displayQuotes").addEventListener("click", displayQuotes);
+document.getElementById("displayAllQuotes").addEventListener("click", displayQuotes);
 document.getElementById("randomMovie").addEventListener("click", randomMovie);
 document.getElementById("randomBook").addEventListener("click", randomBook);
 
@@ -12,7 +6,6 @@ document.getElementById("displayForm").addEventListener("click", displayForm);
 document.getElementById("quotesProgram").addEventListener("click", quotesProgram);
 document.getElementById("removeForm").addEventListener("click", removeForm);
 document.getElementById("createQuote").addEventListener("click", createQuote);
-//document.getElementById("toRemove").addEventListener("click", toRemove);
 document.getElementById("removeAllQuotes").addEventListener("click", removeAllQuotes);
 document.getElementById("removeForm").addEventListener("click", removeForm);
 document.getElementById("removeRandomQuotes").addEventListener("click", removeRandomQuotes);
@@ -65,9 +58,9 @@ quotations.push(godFather);
 
 // Creation of the five first Book
 var madameBovary = new Quotation(
-    "Your scientists were so preoccupied with whether they could, they didn't stop to think if they should.",
+    "Human speech is like a cracked kettle on which we tap crude rhythms for bears to dance to, while we long to make music that will melt the stars.",
     "Book",
-    "Ian Malcom",
+    "Gustave Flaubert",
     "Madame Bovary",
     1993); 
 var leHorla = new Quotation(
@@ -77,22 +70,22 @@ var leHorla = new Quotation(
     "Le Horla",
     1997); 
 var semaineQuatre = new Quotation(
-    "Shut up ! Just shut up, you idiot!",
+    "Je n’utilise pas seulement mes neurones mais tous ceux que je peux emprunter",
     "Book",
-    "Woody",
+    "Tim Ferris",
     "La semaine de 4 heures",
     1995); 
 var khadija = new Quotation(
-    "Frankly, my dear, I don't give a damn.",
+    "With all the wonders Moses was performing, there was one I did not think would ever come to pass: that we would finally be reunited. That I would once again kiss his neck as I had loved to do. That I would see him clasp his sons to his breast.",
     "Book",
-    "Rhett Butler",
+    "Marek Halter",
     "Khadija",
     1939); 
 var fatima = new Quotation(
-    "I'm going to make him an offer he can't refuse.",
+    "The more extreme the opening positions and the smaller the concessions, the more time and effort it will take to discover whether or not agreement is possible.",
     "Book",
-    "Don Corleone",
-    "Fatima",
+    "Roger Fisher",
+    "Getting to yes",
     1972); 
 quotations.push(madameBovary);
 quotations.push(leHorla);
@@ -134,9 +127,6 @@ function createQuote(){
     var newQuotation = new Quotation(newQuote, newCategory, newTitle, newCharacter, newYear);
     removeForm();
     return quotations.push(newQuotation);
-
-    console.log("Quotation added");
-
 }
 
 function removeAllQuotes(){
@@ -267,16 +257,16 @@ function refresh() {
 }
 
 function quotesProgram(){
-    presentChoices();
     var valeur = document.getElementById("valeur").value
-    if(valeur > 3 || valeur < 0){
+    if(valeur > 4 || valeur < 0){
         console.log("You can't write this number. Please, try again.")
-        quotesProgram();
     }else if (valeur === "1"){
         displayQuotes();
     }else if (valeur === "2"){
-        randomQuotes();
-    }else if(valeur === "3"){
+        randomMovie();
+    }else if (valeur === "3"){
+        randomBook();
+    }else if(valeur === "4"){
         displayForm();
     }else{
         refresh();
