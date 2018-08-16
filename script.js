@@ -1,11 +1,11 @@
 console.log("Welcome to your quotation manager !")
 
-// function presentChoices(){
-//     console.log("1: List of quotes")
-//     console.log("2: Random quote")
-//     console.log("3: Add quote")
-//     console.log("0: Quit")
-// }
+ function presentChoices(){
+     console.log("1: List of quotes")
+     console.log("2: Random quote")
+     console.log("3: Add quote")
+     console.log("0: Quit")
+ }
 document.getElementById("displayQuotes").addEventListener("click", displayQuotes);
 document.getElementById("randomQuotes").addEventListener("click", randomQuotes);
 document.getElementById("displayForm").addEventListener("click", displayForm);
@@ -13,7 +13,7 @@ document.getElementById("refresh").addEventListener("click", refresh);
 document.getElementById("quotesProgram").addEventListener("click", quotesProgram);
 document.getElementById("removeForm").addEventListener("click", removeForm);
 document.getElementById("createQuote").addEventListener("click", createQuote);
-document.getElementById("toRemove").addEventListener("click", toRemove);
+//document.getElementById("toRemove").addEventListener("click", toRemove);
 document.getElementById("removeAllQuotes").addEventListener("click", removeAllQuotes);
 document.getElementById("removeForm").addEventListener("click", removeForm);
 document.getElementById("removeRandomQuotes").addEventListener("click", removeRandomQuotes);
@@ -204,21 +204,21 @@ function refresh() {
     location.reload();
 }
 
-// function quotesProgram(){
-//     presentChoices();
-//     var valeur = document.getElementById("valeur").value
-//     if(valeur > 3 || valeur < 0){
-//         console.log("You can't write this number. Please, try again.")
-//         quotesProgram();
-//     }else if (valeur === "1"){
-//         displayQuotes();
-//     }else if (valeur === "2"){
-//         randomQuotes();
-//     }else if(valeur === "3"){
-//         displayForm();
-//     }else{
-//         refresh();
-//     }
-//     return;
-// }
+function quotesProgram(){
+    presentChoices();
+    var valeur = document.getElementById("valeur").value
+    if(valeur > 3 || valeur < 0){
+        console.log("You can't write this number. Please, try again.")
+        quotesProgram();
+    }else if (valeur === "1"){
+        displayQuotes();
+    }else if (valeur === "2"){
+        randomQuotes();
+    }else if(valeur === "3"){
+        displayForm();
+    }else{
+        refresh();
+    }
+    return;
+}
 

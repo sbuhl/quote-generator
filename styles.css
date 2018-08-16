@@ -22,8 +22,11 @@ h2{
 h2{
 	font-size: 1em;
 }
-ul{
-	list-style-type: none;
+ol{
+	list-style-position: inside;
+}
+.nav{
+	list-style-type: decimal;
 }
 .inside{
 	display: flex;
@@ -94,7 +97,6 @@ label{
 	display: block;
 	font-size: 0.8em;
 	font-weight: 700;
-	margin: 20px 0px;
 }
 input{
 	border: 0;
