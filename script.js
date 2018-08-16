@@ -6,6 +6,17 @@ console.log("Welcome to your quotation manager !")
 //     console.log("3: Add quote")
 //     console.log("0: Quit")
 // }
+document.getElementById("displayQuotes").addEventListener("click", displayQuotes);
+document.getElementById("randomQuotes").addEventListener("click", randomQuotes);
+document.getElementById("displayForm").addEventListener("click", displayForm);
+document.getElementById("refresh").addEventListener("click", refresh);
+document.getElementById("quotesProgram").addEventListener("click", quotesProgram);
+document.getElementById("removeForm").addEventListener("click", removeForm);
+document.getElementById("createQuote").addEventListener("click", createQuote);
+document.getElementById("toRemove").addEventListener("click", toRemove);
+document.getElementById("removeAllQuotes").addEventListener("click", removeAllQuotes);
+document.getElementById("removeForm").addEventListener("click", removeForm);
+document.getElementById("removeRandomQuotes").addEventListener("click", removeRandomQuotes);
 
 var quotations = new Array();
 function Quotation(quote, category, character, title, year){
