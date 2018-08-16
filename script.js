@@ -1,4 +1,4 @@
-document.getElementById("displayQuotes").addEventListener("click", displayQuotes);
+document.getElementById("displayAllQuotes").addEventListener("click", displayQuotes);
 document.getElementById("randomMovie").addEventListener("click", randomMovie);
 document.getElementById("randomBook").addEventListener("click", randomBook);
 
@@ -127,9 +127,6 @@ function createQuote(){
     var newQuotation = new Quotation(newQuote, newCategory, newTitle, newCharacter, newYear);
     removeForm();
     return quotations.push(newQuotation);
-
-    console.log("Quotation added");
-
 }
 
 function removeAllQuotes(){
@@ -261,9 +258,8 @@ function refresh() {
 
 function quotesProgram(){
     var valeur = document.getElementById("valeur").value
-    if(valeur > 3 || valeur < 0){
+    if(valeur > 4 || valeur < 0){
         console.log("You can't write this number. Please, try again.")
-        quotesProgram();
     }else if (valeur === "1"){
         displayQuotes();
     }else if (valeur === "2"){

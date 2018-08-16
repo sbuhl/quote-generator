@@ -17,24 +17,15 @@
 	</nav>
 
 	<div class="container-fluid">
-		<button class="btn btn-primary my-2" id="refresh">Refresh the page</button>
-		<button class="btn btn-primary my-2" id="displayAllQuotes">Display all quotes</button>
+		<button class="btn btn-primary my-2" id="refresh">1. Refresh the page</button>
+		<button class="btn btn-primary my-2" id="displayAllQuotes">2. Display all quotes</button>
+		<button class="btn btn-primary my-2" id="randomMovie">3. Movie Generator</button>
+		<button class="btn btn-primary my-2" id="randomBook">4. Book Generator</button>
+		<button class="btn btn-primary my-2" id="displayForm">5. Add quote</button>
 	</div>
 	<div class="container-fluid">
       	<div class="row">
-        	<nav class="col-md-4 col-lg-2 d-none d-md-block bg-light sidebar">
-	          	<div class="sidebar-sticky">
-	            	<ol class="nav flex-column" start="0">
-	              		<li class="nav-item">
-							<a class="nav-link" href="#" id="randomMovie">Movie Generator</a></li>
-						<li class="nav-item">
-							<a class="nav-link" href="#" id="randomBook">Book Generator</a></li>
-	              		<li class="nav-item">
-							<a class="nav-link" href="#" id="displayForm">Add quote</a></li>
-	           		</ol>
-	          	</div>
-        	</nav>
-			<main role="main" class="col-md-8 ml-sm-auto col-lg-10 px-4">
+			<main role="main" class="col-sm-12">
           		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h1 class="h2">Quote generator</h1>
           		</div>
@@ -43,7 +34,7 @@
 						<div class="form-group">
 							<label>Welcome to your quotation manager.</label>
 							<input type="text" class="form-control" id="valeur" placeholder="0">
-							<small id="emailHelp" class="form-text text-muted">Enter number between 0 and 3.</small>
+							<small id="emailHelp" class="form-text text-muted">Enter number between 0 and 4.</small>
 							<button class="btn btn-primary my-2" id="quotesProgram">Enter</button>
 						</div>
 					</form>	
