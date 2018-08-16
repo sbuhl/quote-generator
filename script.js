@@ -1,5 +1,3 @@
-console.log("Welcome to your quotation manager !")
-
  function presentChoices(){
      console.log("1: List of quotes")
      console.log("2: Random quote")
@@ -7,7 +5,8 @@ console.log("Welcome to your quotation manager !")
      console.log("0: Quit")
  }
 document.getElementById("displayQuotes").addEventListener("click", displayQuotes);
-document.getElementById("randomQuotes").addEventListener("click", randomQuotes);
+document.getElementById("randomMovie").addEventListener("click", randomMovie);
+document.getElementById("randomBook").addEventListener("click", randomBook);
 document.getElementById("displayForm").addEventListener("click", displayForm);
 document.getElementById("refresh").addEventListener("click", refresh);
 document.getElementById("quotesProgram").addEventListener("click", quotesProgram);
@@ -26,19 +25,8 @@ function Quotation(quote, category, character, title, year){
     this.title      = title;
     this.year       = year;
 }
-Quotation.prototype.describe = function(){
-    var description = 
-        `   <tr class="parent">
-                <td class="child">${this.quote}</td>
-                <td class="child">${this.category}</td>
-                <td class="child">${this.character}</td>
-                <td class="child">${this.title}</td>
-                <td class="child">${this.year}</td>
-            </tr>
-        `
-    return description;
-}
-// Creation of the five first quotations
+
+// Creation of the five first Movies
 var jurrasicPark = new Quotation(
     "Your scientists were so preoccupied with whether they could, they didn't stop to think if they should.",
     "Movie",
@@ -74,6 +62,43 @@ quotations.push(titanic);
 quotations.push(toyStory);
 quotations.push(goneWith);
 quotations.push(godFather);
+
+// Creation of the five first Book
+var madameBovary = new Quotation(
+    "Your scientists were so preoccupied with whether they could, they didn't stop to think if they should.",
+    "Book",
+    "Ian Malcom",
+    "Madame Bovary",
+    1993); 
+var leHorla = new Quotation(
+    "Oh shit this is cold! Shit, shit, shit.",
+    "Book",
+    "Jack Dawson",
+    "Le Horla",
+    1997); 
+var semaineQuatre = new Quotation(
+    "Shut up ! Just shut up, you idiot!",
+    "Book",
+    "Woody",
+    "La semaine de 4 heures",
+    1995); 
+var khadija = new Quotation(
+    "Frankly, my dear, I don't give a damn.",
+    "Book",
+    "Rhett Butler",
+    "Khadija",
+    1939); 
+var fatima = new Quotation(
+    "I'm going to make him an offer he can't refuse.",
+    "Book",
+    "Don Corleone",
+    "Fatima",
+    1972); 
+quotations.push(madameBovary);
+quotations.push(leHorla);
+quotations.push(semaineQuatre);
+quotations.push(khadija);
+quotations.push(fatima);
 
 function displayForm(){
     var createQuotes = document.getElementById("toHide createQuote");
@@ -133,8 +158,9 @@ function displayQuotes(){
     quotations.forEach(function(quotation){
         var i=0;
         i++;
-        console.log(quotation.describe());
     });
+    console.table(quotations);
+
 }
 
 function removeRandomQuotes(){
@@ -142,64 +168,100 @@ function removeRandomQuotes(){
     toHide.classList.add("hide");
     document.getElementById("display-random-quotes").innerHTML = "";
 }
-function typeOfQuote(numberOfQuotes){
-    var typeOfQuote = "";
-    typeOfQuote = prompt('Do you want a Movie or a Book ?');
-    if(typeOfQuote === "Movie"){
-        randomMovie(numberOfQuotes);
-    }else if(typeOfQuote === "Book"){
-        randomBook(numberOfQuotes);
-    }else{
-        typeOfQuote(numberOfQuotes);
-    }
-}
-function randomMovie(numberOfQuotes){
-    var randomQuotes = document.getElementById("toHide randomQuote");
-    randomQuotes.id = "toHide randomQuote";
-    randomQuotes.classList.remove("hide");
-    
-    const films = quotations.filter(function(quotation){
-        if(quotation.category === "Movie"){
-            return true;
-        }
-    });
-    
-    console.table(films);
 
-    for (var counter = 0; counter < numberOfQuotes; counter++) {
-        var quotation = films[Math.floor(Math.random()*films.length)];
-        document.getElementById("display-random-quotes").innerHTML += quotation.describe();
-    }
+Quotation.prototype.describe = function(){
+    var description = 
+        `   <tr class="parent">
+                <td class="child">${this.quote}</td>
+                <td class="child">${this.category}</td>
+                <td class="child">${this.character}</td>
+                <td class="child">${this.title}</td>
+                <td class="child">${this.year}</td>
+            </tr>
+        `
+    return description;
 }
 
-function randomBook(numberOfQuotes){
-    var randomQuotes = document.getElementById("toHide randomQuote");
-    randomQuotes.id = "toHide randomQuote";
-    randomQuotes.classList.remove("hide");
-    
-    const livres = quotations.filter(function(quotation){
-        if(quotation.category === "Book"){
-            return true;
-        }
-    });
-    
-    console.table(livres);
-
-    for (var counter = 0; counter < numberOfQuotes; counter++) {
-        var quotation = livres[Math.floor(Math.random()*livres.length)];
-        document.getElementById("display-random-quotes").innerHTML += quotation.describe();
-    }
-}
-function randomQuotes(){
+function randomMovie(){
     var numberOfQuotes = "";
     numberOfQuotes = prompt('How many quotes do you want ? (between 1 and 5) :');
     if(numberOfQuotes > 5 || numberOfQuotes <= 0){
         console.log("You can't write this number. Please, try again.")
         randomQuotes();
     }else { 
-        typeOfQuote(numberOfQuotes);
+        var randomQuotes = document.getElementById("toHide randomQuote");
+        randomQuotes.id = "toHide randomQuote";
+        randomQuotes.classList.remove("hide");
+        
+        const films = quotations.filter(function(quotation){
+            if(quotation.category === "Movie"){
+                return true;
+            }
+        });
+        
+        console.table(films);
+
+        for (var counter = 0; counter < numberOfQuotes; counter++) {
+            var quoteR = films[Math.floor(Math.random()*films.length)].quote;
+            var characterR = films[Math.floor(Math.random()*films.length)].character;
+            var categoryR = films[Math.floor(Math.random()*films.length)].category;
+            var titleR = films[Math.floor(Math.random()*films.length)].title;
+            var yearR = films[Math.floor(Math.random()*films.length)].year;
+            console.log(quoteR, characterR, titleR, yearR);
+            document.getElementById("display-random-quotes").innerHTML += 
+            `   <tr class="parent">
+                    <td class="child">${quoteR}</td>
+                    <td class="child">${categoryR}</td>
+                    <td class="child">${characterR}</td>
+                    <td class="child">${titleR}</td>
+                    <td class="child">${yearR}</td>
+                </tr>
+            `;
+        }
     }
 }
+
+function randomBook(){
+    var numberOfQuotes = "";
+    numberOfQuotes = prompt('How many quotes do you want ? (between 1 and 5) :');
+    if(numberOfQuotes > 5 || numberOfQuotes <= 0){
+        console.log("You can't write this number. Please, try again.")
+        randomQuotes();
+    }else { 
+    
+        var randomQuotes = document.getElementById("toHide randomQuote");
+        randomQuotes.id = "toHide randomQuote";
+        randomQuotes.classList.remove("hide");
+        
+        const livres = quotations.filter(function(quotation){
+            if(quotation.category === "Book"){
+                return true;
+            }
+        });
+        
+        console.table(livres);
+
+        for (var counter = 0; counter < numberOfQuotes; counter++) {
+            var quoteR = livres[Math.floor(Math.random()*livres.length)].quote;
+            var characterR = livres[Math.floor(Math.random()*livres.length)].character;
+            var categoryR = livres[Math.floor(Math.random()*livres.length)].category;
+            var titleR = livres[Math.floor(Math.random()*livres.length)].title;
+            var yearR = livres[Math.floor(Math.random()*livres.length)].year;
+            console.log(quoteR, characterR, titleR, yearR);
+            document.getElementById("display-random-quotes").innerHTML += 
+            `   <tr class="parent">
+                    <td class="child">${quoteR}</td>
+                    <td class="child">${categoryR}</td>
+                    <td class="child">${characterR}</td>
+                    <td class="child">${titleR}</td>
+                    <td class="child">${yearR}</td>
+                </tr>
+            `;
+        }
+    }
+
+}
+
 function refresh() {
     location.reload();
 }
