@@ -7,8 +7,8 @@
 document.getElementById("displayQuotes").addEventListener("click", displayQuotes);
 document.getElementById("randomMovie").addEventListener("click", randomMovie);
 document.getElementById("randomBook").addEventListener("click", randomBook);
+
 document.getElementById("displayForm").addEventListener("click", displayForm);
-document.getElementById("refresh").addEventListener("click", refresh);
 document.getElementById("quotesProgram").addEventListener("click", quotesProgram);
 document.getElementById("removeForm").addEventListener("click", removeForm);
 document.getElementById("createQuote").addEventListener("click", createQuote);
