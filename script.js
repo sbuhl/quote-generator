@@ -1,92 +1,3 @@
-// Creation of the quotations
-class QuotationRepository {
-    constructor(){
-        this.quotationTable = [];
-    }
-    add(quotationSample){
-        this.quotationTable.push(quotationSample);
-    }
-};
-
-class QuotationSample {
-    constructor(category, quote, character, title, year){
-        this.category   = category;
-        this.quote      = quote;
-        this.character  = character;
-        this.title      = title;
-        this.year       = year;    
-    };
-
-    fillQuoteStorage(){
-        const movies = new QuotationSample('Movie',     
-        [
-            'Your scientists were so preoccupied with whether they could, they didn\'t stop to think if they should.',
-            'Oh shit this is cold! Shit, shit, shit.',
-            'Shut up ! Just shut up, you idiot!',
-            'Frankly, my dear, I don\'t give a damn.',
-            'I\'m going to make him an offer he can\'t refuse.',
-        ],
-        [
-            'Ian Malcom',
-            'Jack Dawson',
-            'Woody',
-            'Rhett Butler',
-            'Don Corleone',
-        ],
-        [
-            'Jurassic Park',
-            'Titanic',
-            'Toy Story',
-            'Gone With the Wind',
-            'The Godfather'
-        ],
-        [
-            1993,
-            1997,
-            1995,
-            1939,
-            1972
-        ]
-        );
-    
-        const books = new QuotationSample('Book',
-        [
-            'Human speech is like a cracked kettle on which we tap crude rhythms for bears to dance to, while we long to make music that will melt the stars.',
-            'Oh shit this is cold! Shit, shit, shit.',
-            'Je n\'utilise pas seulement mes neurones mais tous ceux que je peux emprunter',
-            'With all the wonders Moses was performing, there was one I did not think would ever come to pass: that we would finally be reunited. That I would once again kiss his neck as I had loved to do. That I would see him clasp his sons to his breast.',
-            'The more extreme the opening positions and the smaller the concessions, the more time and effort it will take to discover whether or not agreement is possible.',
-        ],
-        [
-            'Gustave Flaubert',
-            'Jack Dawson',
-            'Tim Ferris',
-            'Marek Halter',
-            'Roger Fisher',
-        ],
-        [
-            'Madame Bovary',
-            'Le Horla',
-            'La semaine de 4 heures',
-            'Khadija',
-            'Getting to yes',
-        ],
-        [
-            1993,
-            1997,
-            1995,
-            1939,
-            1972
-        ]
-        );
-
-        this.XXXXXX.add(movies);
-        this.XXXXXX.add(books);
-    };
-    
-};
-
-
 
 
 // OPTION 1 :  Refresh the page
@@ -127,13 +38,14 @@ function randomQuote(){
         randomQuotes.id = "toHide randomQuote";
         randomQuotes.classList.remove("hide");
         
+        console.log(randomType);
+
         const randomTypeClicked = quotations.filter(function(quotation){
             if(quotation.category === randomType){
-                console.log(randomTypeClicked);
+                
                 return true;
             }
         });
-
         for (var counter = 0; counter < numberOfQuotes; counter++) {
             var quoteR      = randomTypeClicked[Math.floor(Math.random()*randomTypeClicked.length)].quote;
             var characterR  = randomTypeClicked[Math.floor(Math.random()*randomTypeClicked.length)].character;
@@ -184,7 +96,88 @@ document.getElementById("removeRandomQuotes").addEventListener("click", removeRa
 
 
 
+var quotations = new Array();
+function Quotation(quote,category,  character, title, year){
+    this.quote      = quote;
+    this.category   = category;
+    this.character  = character;
+    this.title      = title;
+    this.year       = year;
+}
 
+// Creation of the five first Movies
+var jurrasicPark = new Quotation(
+    "Your scientists were so preoccupied with whether they could, they didn't stop to think if they should.",
+    "Movie",
+    "Ian Malcom",
+    "Jurassic Park",
+    1993); 
+var titanic = new Quotation(
+    "Oh shit this is cold! Shit, shit, shit.",
+    "Movie",
+    "Jack Dawson",
+    "Titanic",
+    1997); 
+var toyStory = new Quotation(
+    "Shut up ! Just shut up, you idiot!",
+    "Movie",
+    "Woody",
+    "Toy Story",
+    1995); 
+var goneWith = new Quotation(
+    "Frankly, my dear, I don't give a damn.",
+    "Movie",
+    "Rhett Butler",
+    "Gone With the Wind",
+    1939); 
+var godFather = new Quotation(
+    "I'm going to make him an offer he can't refuse.",
+    "Movie",
+    "Don Corleone",
+    "The Godfather",
+    1972); 
+quotations.push(jurrasicPark);
+quotations.push(titanic);
+quotations.push(toyStory);
+quotations.push(goneWith);
+quotations.push(godFather);
+
+// Creation of the five first Book
+var madameBovary = new Quotation(
+    "Human speech is like a cracked kettle on which we tap crude rhythms for bears to dance to, while we long to make music that will melt the stars.",
+    "Book",
+    "Gustave Flaubert",
+    "Madame Bovary",
+    1993); 
+var leHorla = new Quotation(
+    "Oh shit this is cold! Shit, shit, shit.",
+    "Book",
+    "Jack Dawson",
+    "Le Horla",
+    1997); 
+var semaineQuatre = new Quotation(
+    "Je n’utilise pas seulement mes neurones mais tous ceux que je peux emprunter",
+    "Book",
+    "Tim Ferris",
+    "La semaine de 4 heures",
+    1995); 
+var khadija = new Quotation(
+    "With all the wonders Moses was performing, there was one I did not think would ever come to pass: that we would finally be reunited. That I would once again kiss his neck as I had loved to do. That I would see him clasp his sons to his breast.",
+    "Book",
+    "Marek Halter",
+    "Khadija",
+    1939); 
+var fatima = new Quotation(
+    "The more extreme the opening positions and the smaller the concessions, the more time and effort it will take to discover whether or not agreement is possible.",
+    "Book",
+    "Roger Fisher",
+    "Getting to yes",
+    1972); 
+quotations.push(madameBovary);
+quotations.push(leHorla);
+quotations.push(semaineQuatre);
+quotations.push(khadija);
+quotations.push(fatima);
 
 
 function removeForm(){
@@ -217,18 +210,18 @@ function removeRandomQuotes(){
     document.getElementById("display-random-quotes").innerHTML = "";
 }
 
-//Quotation.prototype.describe = function(){
-//    var description = 
-//        `   <tr class="parent">
-//                <td class="child">${this.quote}</td>
-//                <td class="child">${this.category}</td>
-//                <td class="child">${this.character}</td>
-//                <td class="child">${this.title}</td>
-//                <td class="child">${this.year}</td>
-//            </tr>
-//       `
-//    return description;
-//}
+Quotation.prototype.describe = function(){
+    var description = 
+        `   <tr class="parent">
+                <td class="child">${this.quote}</td>
+                <td class="child">${this.category}</td>
+                <td class="child">${this.character}</td>
+                <td class="child">${this.title}</td>
+                <td class="child">${this.year}</td>
+            </tr>
+        `
+    return description;
+}
 
 
 
