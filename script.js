@@ -1,45 +1,42 @@
-
+// OPTION 1 : Refresh the page
+// OPTION 2 : Display all the quotes - NOT RANDOMLY
+// OPTION 3&4 : Choice between the two generators - RANDOM
+// OPTION 5 : Add a quote
+// CREATION OF THE QUOTES
+// DISPLAY THE FORM
+// CLEAN THE HTML Between each option
+// DESCRIPTION of the Quote
 
 // OPTION 1 :  Refresh the page
 document.getElementById("refresh").addEventListener("click", refresh);
 function refresh() {
     location.reload();
-}
+};
 
-// OPTION 2 : Display all the quotes in a table - NOT RANDOMLY
+// OPTION 2 : Display all the quotes - NOT RANDOMLY
 document.getElementById("displayAllQuotes").addEventListener("click", displayQuotes);
 function displayQuotes(){
-    var allQuotes = document.getElementById("toHide displayQuotes");
-    allQuotes.id = "toHide displayQuotes";
-    allQuotes.classList.remove("hide");
-    
+    clean();
     quotations.forEach(function(quotation){
-        document.getElementById("displayQuotes-inside").innerHTML += quotation.describe();
+        document.getElementById("result").innerHTML += quotation.describe();
     });
-
     quotations.forEach(function(quotation){
         var i=0;
         i++;
     });
-}
+};
 
-// OPTION 3&4 : Display the Movies OR the Books Randomly
+// OPTION 3&4 : Display the Movies OR the Books RANDOMLY
 document.getElementById("randomMovie").addEventListener("click", randomQuote);
 document.getElementById("randomBook").addEventListener("click", randomQuote);
-
 function randomQuote(){
+    clean();
     var randomType = (this.name);
     var numberOfQuotes = "";
     numberOfQuotes = prompt('How many quotes do you want ? (between 1 and 5) :');
     if(numberOfQuotes > 5 || numberOfQuotes <= 0){
         console.log("You can't write this number. Please, try again.")
     }else { 
-        var randomQuotes = document.getElementById("toHide randomQuote");
-        randomQuotes.id = "toHide randomQuote";
-        randomQuotes.classList.remove("hide");
-        
-        console.log(randomType);
-
         const randomTypeClicked = quotations.filter(function(quotation){
             if(quotation.category === randomType){
                 
@@ -47,63 +44,56 @@ function randomQuote(){
             }
         });
         for (var counter = 0; counter < numberOfQuotes; counter++) {
-            var quoteR      = randomTypeClicked[Math.floor(Math.random()*randomTypeClicked.length)].quote;
-            var characterR  = randomTypeClicked[Math.floor(Math.random()*randomTypeClicked.length)].character;
-            var titleR      = randomTypeClicked[Math.floor(Math.random()*randomTypeClicked.length)].title;
-            var yearR       = randomTypeClicked[Math.floor(Math.random()*randomTypeClicked.length)].year;
-            document.getElementById("display-random-quotes").innerHTML += 
-            `   <p class="mb-0">${quoteR}</p>
-                <footer class="blockquote-footer">${characterR} <cite title="Source Title">${titleR} - ${yearR}</cite></footer>
+            var quote      = randomTypeClicked[Math.floor(Math.random()*randomTypeClicked.length)].quote;
+            var character  = randomTypeClicked[Math.floor(Math.random()*randomTypeClicked.length)].character;
+            var title      = randomTypeClicked[Math.floor(Math.random()*randomTypeClicked.length)].title;
+            var year       = randomTypeClicked[Math.floor(Math.random()*randomTypeClicked.length)].year;
+            document.getElementById("result").innerHTML += 
+            `   <blockquote class="blockquote" id="display-random-quotes">
+                    <p class="mb-0">${quote}</p>
+                    <footer class="blockquote-footer">${character} <cite title="Source Title">${title} - ${year}</cite></footer>
+                </blockquote>
             `;
         }
     }
-}
+};
 
-// OPTION 5 : Add a quote
-document.getElementById("displayForm").addEventListener("click", displayForm);
-function displayForm(){
-    var createQuotes = document.getElementById("toHide createQuote");
-    createQuotes.id = "toHide createQuote";
-    createQuotes.classList.remove("hide");    
-}
-
-document.getElementById("createQuote").addEventListener("click", createQuote);
+// OPTION 5 : Add A quote
 function createQuote(){
-    var newQuote = document.getElementById("quote").value.toLowerCase()
-    newQuote = capitalizeFirstLetter(newQuote);    
-    var newCategory = document.getElementById("category").value.toLowerCase();    
-    newCategory = capitalizeFirstLetter(newCategory);    
-    var newTitle = document.getElementById("title").value.toLowerCase();    
-    newTitle = capitalizeFirstLetter(newTitle);    
-    var newCharacter = document.getElementById("character").value.toLowerCase();    
-    newCharacter = capitalizeFirstLetter(newCharacter);    
-    var newYear = document.getElementById("year").value.toLowerCase();    
-    // newYear = capitalizeFirstLetter(newYear);    
+    var quote = document.getElementById("quote").value.toLowerCase()
+    quote = capitalizeFirstLetter(quote);
+    var category = document.getElementById("category").value;    
+    var title = document.getElementById("title").value.toLowerCase();    
+    title = capitalizeFirstLetter(title);    
+    var character = document.getElementById("character").value.toLowerCase();    
+    character = capitalizeFirstLetter(character);    
+    var year = document.getElementById("year").value;    
 
-    var newQuotation = new Quotation(newQuote, newCategory, newTitle, newCharacter, newYear);
-    removeForm();
+    var newQuotation = new Quotation(quote,category, character, title, year);
+
+    clean();
+    document.getElementById("result").innerHTML += 
+        `   <blockquote class="blockquote" id="display-random-quotes">
+                The following quote has been added : <p class="mb-0">${quote}</p>
+                <footer class="blockquote-footer">${character} <cite title="Source Title">${title} - ${year}</cite></footer>
+            </blockquote>
+        `;
+
     return quotations.push(newQuotation);
-}
+};
+function capitalizeFirstLetter(info) {
+    return info.charAt(0).toUpperCase() + info.slice(1);
+};
 
-
-document.getElementById("quotesProgram").addEventListener("click", quotesProgram);
-document.getElementById("removeForm").addEventListener("click", removeForm);
-document.getElementById("removeAllQuotes").addEventListener("click", removeAllQuotes);
-document.getElementById("removeForm").addEventListener("click", removeForm);
-document.getElementById("removeRandomQuotes").addEventListener("click", removeRandomQuotes);
-
-
-
-
-
+// CREATION OF THE QUOTES
 var quotations = new Array();
-function Quotation(quote,category,  character, title, year){
+function Quotation(quote,category, character, title, year){
     this.quote      = quote;
     this.category   = category;
     this.character  = character;
     this.title      = title;
     this.year       = year;
-}
+};
 
 // Creation of the five first Movies
 var jurrasicPark = new Quotation(
@@ -179,73 +169,70 @@ quotations.push(semaineQuatre);
 quotations.push(khadija);
 quotations.push(fatima);
 
+// Display the form
+document.getElementById("displayForm").addEventListener("click", displayForm);
+function displayForm(){
+    clean();
+    document.getElementById("result").innerHTML += 
+    `
+    <form>
+        <div class="quote-head">
+                <h1>Add your quote : </h1>
+                <button class="cross toRemove" id="removeForm">&#10005;</button>	
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="quote">Your quote</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="quote" placeholder="Here, My super quote.">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="category">Category</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="category">
+                    <option value="Movie">Movie</option>
+                    <option value="Book">Book</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="title">Title</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="title" placeholder="Titanic">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="character">Character</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="character" placeholder="Romeo">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="year">Year</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="year" placeholder="1998">
+            </div>
+        </div>
+        <div class="footer">
+                <button type="submit" onclick="createQuote()">Validate</button>
+                <button id="removeForm">Discard</button>
+        </div>
+    </form>
+    `;
+};
 
-function removeForm(){
-    var toHide = document.getElementById("toHide createQuote");
-    toHide.classList.add("hide");
-    document.getElementById("quote").value = "";    
-    document.getElementById("category").value = "";    
-    document.getElementById("title").value = "";    
-    document.getElementById("character").value = "";   
-    document.getElementById("year").value = "";  
-}
-
-function capitalizeFirstLetter(ifno) {
-    return ifno.charAt(0).toUpperCase() + ifno.slice(1);
-}
-
-
-
-function removeAllQuotes(){
-    var toHide = document.getElementById("toHide displayQuotes");
-    toHide.classList.add("hide");
-    document.getElementById("displayQuotes-inside").innerHTML = "";
-}
-
-
-
-function removeRandomQuotes(){
-    var toHide = document.getElementById("toHide randomQuote");
-    toHide.classList.add("hide");
-    document.getElementById("display-random-quotes").innerHTML = "";
-}
-
+// CLEAN THE HTML Between each option
+function clean(){
+    document.getElementById("result").innerHTML = '';
+};
+ 
+// DESCRIPTION of the Quote
 Quotation.prototype.describe = function(){
     var description = 
-        `   <tr class="parent">
-                <td class="child">${this.quote}</td>
-                <td class="child">${this.category}</td>
-                <td class="child">${this.character}</td>
-                <td class="child">${this.title}</td>
-                <td class="child">${this.year}</td>
-            </tr>
+        `   <blockquote class="blockquote" id="display-random-quotes">
+                <p class="mb-0">${this.quote}</p>
+                <footer class="blockquote-footer">${this.character} <cite title="Source Title">${this.title} - ${this.year}</cite></footer>
+            </blockquote>
         `
     return description;
-}
-
-
-
-
-
-
-
-
-
-function quotesProgram(){
-    var valeur = document.getElementById("valeur").value
-    if(valeur > 4 || valeur < 0){
-        console.log("You can't write this number. Please, try again.")
-    }else if (valeur === "1"){
-        displayQuotes();
-    }else if (valeur === "2"){
-        randomMovie();
-    }else if (valeur === "3"){
-        randomBook();
-    }else if(valeur === "4"){
-        displayForm();
-    }else{
-        refresh();
-    }
-    return;
-}
-
+};
