@@ -19,8 +19,8 @@
 	<div class="container-fluid">
 		<button class="btn btn-primary my-2" id="refresh">1. Refresh the page</button>
 		<button class="btn btn-primary my-2" id="displayAllQuotes">2. Display all quotes</button>
-		<button class="btn btn-primary my-2" id="randomMovie">3. Movie Generator</button>
-		<button class="btn btn-primary my-2" id="randomBook">4. Book Generator</button>
+		<button class="btn btn-primary my-2" id="randomMovie" name="Movie">3. Movie Generator</button>
+		<button class="btn btn-primary my-2" id="randomBook" name="Book">4. Book Generator</button>
 		<button class="btn btn-primary my-2" id="displayForm">5. Add quote</button>
 	</div>
 	<div class="container-fluid">
@@ -106,26 +106,16 @@
 						</table>
 					</div>
 				</div>
+
 				<div class="hide" id="toHide randomQuote">
 					<div class="quote-head">
 						<h1>Here some random quotes : </h1>
 						<button class="cross toRemove" id="removeRandomQuotes">&#10005;</button>
 					</div>
 					<div class="table-responsive">
-						<table class="table table-striped table-sm">
-							<thead>
-								<tr>
-									<th>Quote</th>
-									<th>Category</th>
-									<th>Character</th>
-									<th>Title</th>
-									<th>Year</th>
-								</tr>
-							</thead>
-							<tbody id="display-random-quotes">
-								<!-- Add in JS -->
-							</tbody>
-						</table>
+						<blockquote class="blockquote" id="display-random-quotes">
+							<!-- Add in JS -->
+						</blockquote>
 					</div>
 				</div>
 			</main>
